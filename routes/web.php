@@ -32,6 +32,10 @@ Route::get('about-us', function () {
     return view('about.about');
 });
 
+Route::get('context-of-aging', function () {
+    return view('about.context-of-aging');
+});
+
 Route::get('service', function () {
     return view('service.service');
 });
