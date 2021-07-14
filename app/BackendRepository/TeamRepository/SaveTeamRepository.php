@@ -31,6 +31,7 @@ class SaveTeamRepository extends Controller
     public function saveTeam($request)
 	{
 
+        $this->validation->validateTeamCategory($request);
         $this->validation->validateNameEng($request);
         $this->validation->validateNameNep($request);
         $this->validation->validateImage($request);
@@ -43,6 +44,7 @@ class SaveTeamRepository extends Controller
         $this->validation->validateSeoDescription($request);
         
 		$team = new Team;
+        $team->team_category_id = str_replace(array( '\'', '"', ',' , ';', '<', '>', '!','?','&lt;' ), ' ',$request['team_cat']);
 		$team->uuid = $this->generateUuid->generateUuid('teams');
 		$team->name_eng = str_replace(array( '\'', '"', ',' , ';', '<', '>', '!','?','&lt;' ), ' ',$request['name_eng']);
 		$team->name_nep = str_replace(array( '\'', '"', ',' , ';', '<', '>', '!','?','&lt;' ), ' ',$request['name_nep']);
@@ -63,6 +65,7 @@ class SaveTeamRepository extends Controller
 	public function updateTeam($request)
 	{
 
+        $this->validation->validateTeamCategory($request);
         $this->validation->validateNameEng($request);
         $this->validation->validateNameNep($request);
         $this->validation->validateAltImage($request);
@@ -75,6 +78,7 @@ class SaveTeamRepository extends Controller
 
         	
     	$team = Team::where('uuid',$request['uuid'])->get()->first();
+        $team->team_category_id = str_replace(array( '\'', '"', ',' , ';', '<', '>', '!','?','&lt;' ), ' ',$request['team_cat']);
 		$team->name_eng = str_replace(array( '\'', '"', ',' , ';', '<', '>', '!','?','&lt;' ), ' ',$request['name_eng']);
 		$team->name_nep = str_replace(array( '\'', '"', ',' , ';', '<', '>', '!','?','&lt;' ), ' ',$request['name_nep']);
         $team->slug_eng = Str::slug(str_replace( array( '\'', '"', ',' , ';', '<', '>', '!','?','&lt;' ), ' ',$request['name_eng']));

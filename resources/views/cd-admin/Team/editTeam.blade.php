@@ -17,6 +17,19 @@
 	            	@if(Session::has('msg'))
 						<p class="alert alert-danger">{{ Session::get('msg') }}</p>
 					@endif
+					<div class="form-group">
+	                    <label class="col-md-3 control-label">Team Category</label>
+	                    <div class="col-md-6">
+	                        <select class="form-control" name="team_cat">
+	                        	@foreach($teamCategory as $teamCat)
+	                        	<option value="{{$teamCat['id']}}" <?php if ($teamCat['id']==$team['team_category_id']) {
+	                        		echo "selected";
+	                        	} ?>>{{$teamCat['name_eng']}}</option>
+	                        	@endforeach
+	                        </select>
+	                        <div style="color: red;">{{$errors->first('team_cat')}}</div>
+	                    </div>
+	                </div>
 	                <div class="form-group">
 	                    <label class="col-md-3 control-label">English Name</label>
 	                    <div class="col-md-6">

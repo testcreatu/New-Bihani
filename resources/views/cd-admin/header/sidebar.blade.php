@@ -69,6 +69,12 @@
                             <h3 class="uppercase">Bihani Team</h3>
                         </li>
                         <li class="nav-item">
+                            <a href="{{url('cd-admin/team-category')}}" class="nav-link">
+                                <i class="fa fa-users"></i>
+                                <span class="title">Team Category</span>
+                            </a> 
+                        </li>
+                        <li class="nav-item">
                             <a href="{{url('cd-admin/team')}}" class="nav-link">
                                 <i class="fa fa-users"></i>
                                 <span class="title">Team</span>

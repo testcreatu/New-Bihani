@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\BackendRepository\TeamRepository\SaveTeamRepository;
 use App\BackendRepository\ImageRepository\DeleteImageRepository;
 use App\Team;
+use App\TeamCategory;
 
 class TeamController extends Controller
 {
@@ -21,7 +22,8 @@ class TeamController extends Controller
 
 	public function create()
     {
-    	return view('cd-admin.Team.createTeam');
+        $teamCategory = TeamCategory::all();
+    	return view('cd-admin.Team.createTeam', compact('teamCategory'));
     }
 
     public function save(Request $request)
@@ -51,7 +53,8 @@ class TeamController extends Controller
     public function edit(Request $request, $slug)
     {
     	$team = Team::where('uuid', $request['token'])->get()->first();
-    	return view('cd-admin.Team.editTeam', compact('team'));
+        $teamCategory = TeamCategory::all();
+    	return view('cd-admin.Team.editTeam', compact('team', 'teamCategory'));
     }
 
     public function update(Request $request, $slug)

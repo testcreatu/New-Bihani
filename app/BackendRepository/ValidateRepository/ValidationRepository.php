@@ -4,9 +4,17 @@ namespace App\BackendRepository\ValidateRepository;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Validation\Rule;
 
 class ValidationRepository extends Controller
 {
+	public function validateTeamCategory($request)
+	{
+		$request->validate([
+			'team_cat' => 'required',
+		]);
+	}
+
 	public function validateTitleEng($request)
 	{
 		$request->validate([
@@ -222,6 +230,20 @@ class ValidationRepository extends Controller
 	{
 		$request->validate([
 			'skill_nep' => 'required',
+		]);
+	}
+
+	public function validatePriority($request)
+	{
+		$request->validate([
+			'priority' => 'required|unique:team_categories,priority',
+		]);
+	}
+
+	public function validateUpdatePriority($request)
+	{
+		$request->validate([
+			'priority' => ['required',Rule::unique('team_categories')->ignore($request['id'])],
 		]);
 	}
 	

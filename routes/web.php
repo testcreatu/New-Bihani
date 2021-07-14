@@ -193,5 +193,14 @@ Route::group(['prefix'=>'cd-admin'], function(){
 	Route::get('delete-resource/{resource_slug}','Backend\ResourceController@delete');
 
 
+	//TeamCategory
+	Route::get('create-team-category','Backend\TeamCategoryController@create');
+	Route::post('save-team-category','Backend\TeamCategoryController@save');
+	Route::get('team-category','Backend\TeamCategoryController@view');
+	Route::get('edit-team-category/{teamCategory_slug}','Backend\TeamCategoryController@edit');
+	Route::post('update-team-category/{teamCategory_slug}','Backend\TeamCategoryController@update');
+	Route::get('delete-team-category/{teamCategory_slug}','Backend\TeamCategoryController@delete');
+
+
 
 });
