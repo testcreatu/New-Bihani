@@ -27,6 +27,13 @@ class ValidationRepository extends Controller
 		]);
 	}
 
+	public function validateWhyBihani($request)
+	{
+		$request->validate([
+			'why_bihani' => 'required',
+		]);
+	}
+
 	public function validateNameNep($request)
 	{
 		$request->validate([

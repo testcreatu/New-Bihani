@@ -21,6 +21,7 @@ class CreateAboutusesTable extends Migration
             $table->string('slug_nep');
             $table->longText('description_eng');
             $table->longText('description_nep');
+            $table->longText('why_bihani');
             $table->string('image');
             $table->string('alt_image');
             $table->string('seo_title');

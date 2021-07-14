@@ -48,6 +48,14 @@
 	                </div>
 
 	                <div class="form-group">
+	                    <label class="col-md-3 control-label">Why Bihani?</label>
+	                    <div class="col-md-6">
+	                        <textarea name="why_bihani" class="form-control" placeholder="Why Bihani?">{{$about['why_bihani']}}</textarea>
+	                        <div style="color: red;">{{$errors->first('why_bihani')}}</div>
+	                    </div>
+	                </div>
+
+	                <div class="form-group">
 	                    <label class="col-md-3 control-label">Image</label>
 	                    <div class="col-md-6">
 	                        <input type="file" name="image" class="form-control">
