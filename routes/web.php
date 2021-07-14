@@ -13,13 +13,91 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+
+
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('home.home');
 });
+
+Route::get('home', function () {
+    return view('home.home');
+});
+
+Route::get('about-us', function () {
+    return view('about.about');
+});
+
+Route::get('service', function () {
+    return view('service.service');
+});
+
+Route::get('service-detail', function () {
+    return view('service.service-detail');
+});
+
+Route::get('contact-us', function () {
+    return view('contact.contact');
+});
+
+Route::get('media', function () {
+    return view('media.media');
+});
+
+Route::get('media-event', function () {
+    return view('media.media-event');
+});
+
+Route::get('gallery', function () {
+    return view('media.gallery');
+});
+
+Route::get('resource', function () {
+    return view('resources.resource');
+});
+
+Route::get('team', function () {
+    return view('team.team');
+});
+
+Route::get('impact-detail', function () {
+    return view('impact.impact-detail');
+});
+
+Route::get('impact', function () {
+    return view('impact.impact');
+});
+
+Route::get('member', function () {
+    return view('impact.member');
+});
+Route::get('member-detail', function () {
+    return view('impact.member-detail');
+});
+
+Route::get('objective', function () {
+    return view('objective.objective');
+});
+
+Route::get('partner', function () {
+    return view('partner.partner');
+});
+
+Route::get('error', function () {
+    return view('error.error');
+});
+
+
+
+
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix'=>'cd-admin'], function(){
 
